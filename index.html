@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ইসলামী ছাত্র আন্দোলন বাংলাদেশ | মিরপুর মডেল থানা শাখা</title>
+    
+    <!-- Google Fonts (Hind Siliguri) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#10b981',
+                            DEFAULT: '#047857',
+                            dark: '#064e3b',
+                            gold: '#d97706'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Hind Siliguri"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { font-family: 'Hind Siliguri', sans-serif; background-color: #f8fafc; }
+        .tab-btn.active { background-color: #047857; color: white; border-color: #047857; }
+    </style>
+</head>
+<body class="text-slate-800 flex flex-col min-h-screen">
+
+    <!-- Top Notice Banner -->
+    <div class="bg-brand-dark text-white text-xs sm:text-sm py-1.5 px-4 text-center font-medium flex justify-between items-center max-w-7xl mx-auto w-full">
+        <span class="truncate"><i class="fa-solid fa-bullhorn text-amber-400 mr-2"></i> মিরপুর মডেল থানা শাখার অফিসিয়াল পোর্টালে স্বাগতম</span>
+        <button onclick="requestNotificationPermission()" class="ml-2 bg-amber-500 hover:bg-amber-600 px-2 py-0.5 rounded text-white font-bold whitespace-nowrap text-xs">
+            <i class="fa-solid fa-bell"></i> নোটিফিকেশন অন করুন
+        </button>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md sticky top-0 z-40 border-b border-emerald-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- App Logo & Title -->
+                <div class="flex items-center space-x-3 space-x-reverse cursor-pointer" onclick="showSection('home')">
+                    <img src="1000042652.jpg" alt="Logo" class="w-10 h-10 object-contain rounded-full shadow-sm border border-emerald-200">
+                    <div>
+                        <h1 class="font-bold text-brand-dark text-base sm:text-lg leading-tight">ইসলামী ছাত্র আন্দোলন বাংলাদেশ</h1>
+                        <p class="text-xs text-brand-light font-semibold">মিরপুর মডেল থানা শাখা</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-1 lg:space-x-3 text-sm font-semibold">
+                    <button onclick="showSection('home')" class="nav-link px-3 py-2 rounded-md hover:text-brand transition">হোম</button>
+                    <button onclick="showSection('thana-committee')" class="nav-link px-3 py-2 rounded-md hover:text-brand transition">থানা কমিটি</button>
+                    <button onclick="showSection('ward-committee')" class="nav-link px-3 py-2 rounded-md hover:text-brand transition">ওয়ার্ড ও ক্যাম্পাস</button>
+                    <button onclick="showSection('news-notices')" class="nav-link px-3 py-2 rounded-md hover:text-brand transition">সংবাদ ও নোটিশ</button>
+                    <button onclick="showSection('library')" class="nav-link px-3 py-2 rounded-md hover:text-brand transition">পাঠাগার</button>
+                    <button onclick="showSection('contact')" class="nav-link px-3 py-2 rounded-md hover:text-brand transition">যোগাযোগ</button>
+                    <button onclick="showSection('admin')" class="px-3 py-1.5 rounded-md bg-emerald-50 text-brand-dark border border-brand hover:bg-brand hover:text-white transition">
+                        <i class="fa-solid fa-shield-halved mr-1"></i> অ্যাডমিন
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuBtn" class="text-slate-700 hover:text-brand p-2 text-xl focus:outline-none">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 pt-2 pb-4 space-y-2 shadow-lg">
+            <button onclick="showSection('home'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium border-b">হোম</button>
+            <button onclick="showSection('thana-committee'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium border-b">থানা কমিটি</button>
+            <button onclick="showSection('ward-committee'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium border-b">ওয়ার্ড ও ক্যাম্পাস কমিটি</button>
+            <button onclick="showSection('news-notices'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium border-b">সংবাদ ও নোটিশ</button>
+            <button onclick="showSection('library'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium border-b">পাঠাগার</button>
+            <button onclick="showSection('contact'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium border-b">যোগাযোগ</button>
+            <button onclick="showSection('admin'); toggleMobileMenu();" class="block w-full text-left py-2 font-bold text-brand">অ্যাডমিন প্যানেল</button>
+        </div>
+    </nav>
+
+    <!-- Main Content Containers -->
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6">
+
+        <!-- ================= SECTION: HOME ================= -->
+        <section id="sec-home" class="space-y-10">
+            <div class="rounded-2xl bg-gradient-to-r from-brand-dark via-brand to-emerald-700 text-white p-8 md:p-12 shadow-xl relative overflow-hidden text-center md:text-left flex flex-col md:flex-row items-center justify-between">
+                <div class="max-w-2xl z-10 space-y-4">
+                    <span class="bg-amber-400 text-brand-dark px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">জ্ঞানের আলোয় আদর্শ সমাজ গঠন</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight">ইসলামী ছাত্র আন্দোলন বাংলাদেশ</h2>
+                    <h3 class="text-lg sm:text-xl text-emerald-100 font-medium">মিরপুর মডেল থানা শাখা, ঢাকা মহানগর পশ্চিম</h3>
+                    <p class="text-emerald-50 text-sm sm:text-base leading-relaxed">
+                        আল্লাহর সন্তুষ্টি অর্জনের লক্ষ্যে যোগ্য, আদর্শবান ও চরিত্রবান ছাত্রসমাজ বিনির্মাণে আমরা অঙ্গীকারবদ্ধ।
+                    </p>
+                    <div class="pt-2 flex flex-wrap gap-3 justify-center md:justify-start">
+                        <button onclick="showSection('contact')" class="bg-amber-500 hover:bg-amber-600 text-white font-bold px-6 py-2.5 rounded-lg shadow-md transition flex items-center">
+                            <i class="fa-solid fa-user-plus mr-2"></i> যোগাযোগ করুন
+                        </button>
+                        <button onclick="showSection('news-notices')" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-5 py-2.5 rounded-lg border border-white/30 transition">
+                            সর্বশেষ নোটিশ
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-8 md:mt-0">
+                    <img src="1000042652.jpg" alt="Logo Large" class="w-40 h-40 object-contain rounded-full shadow-2xl border-4 border-amber-300 opacity-90 mx-auto">
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-emerald-50">
+                <h3 class="text-2xl font-bold text-brand-dark mb-4 border-b pb-2 flex items-center">
+                    <i class="fa-solid fa-circle-info text-brand mr-2"></i> সংগঠনের পরিচিতি ও মূল লক্ষ্য
+                </h3>
+                <div class="text-slate-600 space-y-3 leading-relaxed text-justify">
+                    <p>ইসলামী ছাত্র আন্দোলন বাংলাদেশ দেশের সর্বস্তরের ছাত্রদের মধ্যে ইসলামী মূল্যবোধ জাগ্রত করা, চারিত্রিক পরিশুদ্ধি অর্জন এবং যোগ্য নেতৃত্ব গড়ে তোলার জন্য কাজ করে যাচ্ছে।</p>
+                    <p>মিরপুর মডেল থানা শাখা স্থানীয় স্কুল, কলেজ, মাদ্রাসা ও বিশ্ববিদ্যালয় শিক্ষার্থীদের নিয়ে শিক্ষা, দাওয়াত ও সামাজিক উন্নয়নমূলক কার্যক্রম সক্রিয়ভাবে পরিচালনা করে আসছে।</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION: THANA COMMITTEE ================= -->
+        <section id="sec-thana-committee" class="hidden space-y-6">
+            <div class="text-center max-w-2xl mx-auto mb-8">
+                <h2 class="text-3xl font-bold text-brand-dark">থানা কমিটি</h2>
+                <p class="text-slate-600 text-sm mt-1">ইসলামী ছাত্র আন্দোলন বাংলাদেশ, মিরপুর মডেল থানা শাখার দায়িত্বশীলবৃন্দের তালিকা</p>
+                <div class="w-16 h-1 bg-amber-500 mx-auto mt-2 rounded"></div>
+            </div>
+            <div id="thana-members-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto"></div>
+        </section>
+
+        <!-- ================= SECTION: WARD & CAMPUS COMMITTEE ================= -->
+        <section id="sec-ward-committee" class="hidden space-y-6">
+            <div class="text-center max-w-2xl mx-auto mb-6">
+                <h2 class="text-3xl font-bold text-brand-dark">প্রতিষ্ঠান ও ওয়ার্ড কমিটি</h2>
+                <p class="text-slate-600 text-sm mt-1">ওয়ার্ড, ইউনিট ও ক্যাম্পাসভিত্তিক সাংগঠনিক কমিটি</p>
+                <div class="w-16 h-1 bg-amber-500 mx-auto mt-2 rounded"></div>
+            </div>
+            <div class="flex justify-center flex-wrap gap-2 mb-6" id="subcomm-filter-btns">
+                <button onclick="filterSubCommittee('সকল')" class="tab-btn active px-4 py-1.5 rounded-full border text-sm font-semibold transition shadow-sm">সকল</button>
+                <button onclick="filterSubCommittee('ওয়ার্ড')" class="tab-btn px-4 py-1.5 rounded-full border text-sm font-semibold transition bg-white text-slate-700">ওয়ার্ড কমিটি</button>
+                <button onclick="filterSubCommittee('ক্যাম্পাস')" class="tab-btn px-4 py-1.5 rounded-full border text-sm font-semibold transition bg-white text-slate-700">ক্যাম্পাস/মাদরাসা</button>
+                <button onclick="filterSubCommittee('ইউনিট')" class="tab-btn px-4 py-1.5 rounded-full border text-sm font-semibold transition bg-white text-slate-700">ইউনিট কমিটি</button>
+            </div>
+            <div id="subcommittee-list" class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto"></div>
+        </section>
+
+        <!-- ================= SECTION: NEWS & NOTICES ================= -->
+        <section id="sec-news-notices" class="hidden space-y-6">
+            <div class="text-center max-w-2xl mx-auto mb-6">
+                <h2 class="text-3xl font-bold text-brand-dark">সংবাদ ও সাংগঠনিক বিজ্ঞপ্তি</h2>
+                <p class="text-slate-600 text-sm mt-1">মিরপুর মডেল থানার সকল কার্যক্রম ও কেন্দ্রীয় নির্দেশনাবলী</p>
+                <div class="w-16 h-1 bg-amber-500 mx-auto mt-2 rounded"></div>
+            </div>
+            <div id="news-list" class="space-y-4 max-w-4xl mx-auto"></div>
+        </section>
+
+        <!-- ================= SECTION: LIBRARY ================= -->
+        <section id="sec-library" class="hidden space-y-6">
+            <div class="text-center max-w-2xl mx-auto mb-6">
+                <h2 class="text-3xl font-bold text-brand-dark">সাংগঠনিক পাঠাগার</h2>
+                <p class="text-slate-600 text-sm mt-1">সিলেবাসভুক্ত সাংগঠনিক সাহিত্য ও প্রয়োজনীয় বইসমূহ</p>
+                <div class="w-16 h-1 bg-amber-500 mx-auto mt-2 rounded"></div>
+            </div>
+            <div id="books-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto"></div>
+        </section>
+
+        <!-- ================= SECTION: CONTACT ================= -->
+        <section id="sec-contact" class="hidden space-y-8 max-w-4xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-6">
+                <h2 class="text-3xl font-bold text-brand-dark">যোগাযোগ</h2>
+                <p class="text-slate-600 text-sm mt-1">থানা সভাপতি ও সাধারণ সম্পাদকের সাথে যোগাযোগের মাধ্যম</p>
+                <div class="w-16 h-1 bg-amber-500 mx-auto mt-2 rounded"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- President Card -->
+                <div class="bg-white rounded-2xl shadow-md border border-emerald-100 p-6 text-center flex flex-col items-center">
+                    <img src="1000042652.jpg" alt="President" class="w-28 h-28 object-contain rounded-full border-4 border-emerald-100 shadow mb-4 p-1 bg-emerald-50">
+                    <h3 class="text-xl font-bold text-slate-800">মুহাম্মাদ খালিদ সাইফুল্লাহ</h3>
+                    <span class="bg-emerald-50 text-brand-dark font-bold text-xs px-3 py-1 rounded-full mt-1 border">থানা সভাপতি</span>
+                    <div class="mt-6 w-full space-y-2">
+                        <a href="tel:01879003145" class="w-full bg-brand hover:bg-brand-dark text-white font-bold py-2 rounded-lg flex items-center justify-center transition shadow text-sm">
+                            <i class="fa-solid fa-phone mr-2"></i> ০১৮৭৯০০৩১৪৫
+                        </a>
+                        <a href="https://wa.me/8801879003145" target="_blank" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 rounded-lg flex items-center justify-center transition shadow text-sm">
+                            <i class="fa-brands fa-whatsapp mr-2 text-lg"></i> হোয়াটসঅ্যাপ
+                        </a>
+                    </div>
+                </div>
+
+                <!-- General Secretary Card -->
+                <div class="bg-white rounded-2xl shadow-md border border-emerald-100 p-6 text-center flex flex-col items-center">
+                    <img src="1000042652.jpg" alt="Secretary" class="w-28 h-28 object-contain rounded-full border-4 border-emerald-100 shadow mb-4 p-1 bg-emerald-50">
+                    <h3 class="text-xl font-bold text-slate-800">হাফেজ মুহাম্মাদ যোবায়ের</h3>
+                    <span class="bg-emerald-50 text-brand-dark font-bold text-xs px-3 py-1 rounded-full mt-1 border">সাধারণ সম্পাদক</span>
+                    <div class="mt-6 w-full space-y-2">
+                        <a href="tel:01879003145" class="w-full bg-brand hover:bg-brand-dark text-white font-bold py-2 rounded-lg flex items-center justify-center transition shadow text-sm">
+                            <i class="fa-solid fa-phone mr-2"></i> ০১৮৭৯০০৩১৪৫
+                        </a>
+                        <a href="https://wa.me/8801879003145" target="_blank" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 rounded-lg flex items-center justify-center transition shadow text-sm">
+                            <i class="fa-brands fa-whatsapp mr-2 text-lg"></i> হোয়াটসঅ্যাপ
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION: ADMIN PANEL ================= -->
+        <section id="sec-admin" class="hidden space-y-6">
+            <div id="admin-login-box" class="max-w-md mx-auto bg-white p-8 rounded-2xl shadow-lg border border-emerald-100">
+                <div class="text-center mb-6">
+                    <div class="w-12 h-12 bg-brand/10 text-brand rounded-full flex items-center justify-center mx-auto text-xl mb-2">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark">প্রধান অ্যাডমিন লগইন</h3>
+                    <p class="text-xs text-slate-500">মোবাইল থেকে সরাসরি তথ্য পরিচালনার জন্য প্রবেশ করুন</p>
+                </div>
+                <form id="admin-login-form" onsubmit="handleAdminLogin(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">অ্যাডমিন ইমেইল</label>
+                        <input type="email" id="admin-email" required class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand focus:outline-none text-sm" placeholder="admin@gmail.com">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">পাসওয়ার্ড</label>
+                        <input type="password" id="admin-password" required class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand focus:outline-none text-sm" placeholder="123456">
+                    </div>
+                    <button type="submit" class="w-full bg-brand hover:bg-brand-dark text-white font-bold py-2.5 rounded-lg text-sm transition">
+                        লগইন করুন
+                    </button>
+                    <p id="admin-login-error" class="text-xs text-red-600 text-center hidden"></p>
+                </form>
+            </div>
+
+            <div id="admin-dashboard" class="hidden space-y-6">
+                <div class="bg-white p-4 rounded-xl shadow-sm border flex flex-col sm:flex-row justify-between items-center gap-3">
+                    <div>
+                        <h3 class="text-lg font-bold text-brand-dark flex items-center">
+                            <i class="fa-solid fa-gauge-high text-brand mr-2"></i> মিরপুর থানা অ্যাডমিন কন্ট্রোল প্যানেল
+                        </h3>
+                        <p class="text-xs text-slate-500">স্বাগতম! আপনি এখান থেকে অ্যাপের সব তথ্য পরিচালনা করতে পারেন।</p>
+                    </div>
+                    <button onclick="handleAdminLogout()" class="bg-red-50 text-red-600 hover:bg-red-600 hover:text-white px-4 py-1.5 rounded-lg text-xs font-bold transition border border-red-200">
+                        <i class="fa-solid fa-right-from-bracket mr-1"></i> লগআউট
+                    </button>
+                </div>
+
+                <div class="flex overflow-x-auto gap-2 pb-2 border-b">
+                    <button onclick="switchAdminTab('tab-manage-thana')" class="admin-tab-btn active px-4 py-2 rounded-lg text-xs font-bold border transition whitespace-nowrap bg-brand text-white">থানা কমিটি</button>
+                    <button onclick="switchAdminTab('tab-manage-subcomm')" class="admin-tab-btn px-4 py-2 rounded-lg text-xs font-bold border transition whitespace-nowrap bg-white text-slate-700">প্রতিষ্ঠান কমিটি</button>
+                    <button onclick="switchAdminTab('tab-manage-news')" class="admin-tab-btn px-4 py-2 rounded-lg text-xs font-bold border transition whitespace-nowrap bg-white text-slate-700">সংবাদ ও নোটিশ</button>
+                    <button onclick="switchAdminTab('tab-manage-books')" class="admin-tab-btn px-4 py-2 rounded-lg text-xs font-bold border transition whitespace-nowrap bg-white text-slate-700">পাঠাগার</button>
+                </div>
+
+                <!-- Tab 1 -->
+                <div id="tab-manage-thana" class="admin-tab-content space-y-4">
+                    <div class="bg-white p-5 rounded-xl border shadow-sm">
+                        <h4 class="font-bold text-brand-dark text-sm mb-3">নতুন থানা দায়িত্বশীল যুক্ত করুন (শুধু নাম ও পদবি)</h4>
+                        <form onsubmit="addThanaMember(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                            <input type="text" id="tm-name" placeholder="নাম" required class="border p-2 rounded">
+                            <input type="text" id="tm-role" placeholder="পদবি" required class="border p-2 rounded">
+                            <button type="submit" class="sm:col-span-2 bg-brand text-white font-bold py-2 rounded hover:bg-brand-dark">যোগ করুন</button>
+                        </form>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border shadow-sm">
+                        <h4 class="font-bold text-brand-dark text-sm mb-3">বর্তমান থানা কমিটি তালিকা</h4>
+                        <div id="admin-thana-list" class="divide-y text-sm"></div>
+                    </div>
+                </div>
+
+                <!-- Tab 2 -->
+                <div id="tab-manage-subcomm" class="admin-tab-content hidden space-y-4">
+                    <div class="bg-white p-5 rounded-xl border shadow-sm">
+                        <h4 class="font-bold text-brand-dark text-sm mb-3">নতুন প্রতিষ্ঠান বা ওয়ার্ড কমিটি যোগ করুন</h4>
+                        <form onsubmit="addSubCommittee(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                            <input type="text" id="sc-name" placeholder="শাখার নাম" required class="border p-2 rounded">
+                            <select id="sc-type" class="border p-2 rounded" required>
+                                <option value="ওয়ার্ড">ওয়ার্ড কমিটি</option>
+                                <option value="ক্যাম্পাস">ক্যাম্পাস/মাদরাসা কমিটি</option>
+                                <option value="ইউনিট">ইউনিট কমিটি</option>
+                            </select>
+                            <input type="text" id="sc-president" placeholder="সভাপতি/আহ্বায়কের নাম" required class="border p-2 rounded">
+                            <input type="text" id="sc-sec" placeholder="সাধারণ সম্পাদকের নাম" required class="border p-2 rounded">
+                            <button type="submit" class="sm:col-span-2 bg-brand text-white font-bold py-2 rounded hover:bg-brand-dark">সাবমিট করুন</button>
+                        </form>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border shadow-sm">
+                        <h4 class="font-bold text-brand-dark text-sm mb-3">প্রতিষ্ঠান কমিটি তালিকা</h4>
+                        <div id="admin-subcomm-list" class="divide-y text-sm"></div>
+                    </div>
+                </div>
+
+                <!-- Tab 3 -->
+                <div id="tab-manage-news" class="admin-tab-content hidden space-y-4">
+                    <div class="bg-white p-5 rounded-xl border shadow-sm">
+                        <h4 class="font-bold text-brand-dark text-sm mb-3">নতুন সংবাদ বা নোটিশ প্রকাশ করুন (মোবাইল নোটিফিকেশনসহ)</h4>
+                        <form onsubmit="addNewsItem(event)" class="space-y-3 text-sm">
+                            <input type="text" id="news-title" placeholder="শিরোনাম" required class="w-full border p-2 rounded">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <select id="news-type" class="border p-2 rounded">
+                                    <option value="বিজ্ঞপ্তি">সাংগঠনিক বিজ্ঞপ্তি</option>
+                                    <option value="সংবাদ">প্রেস রিলিজ / সংবাদ</option>
+                                </select>
+                                <input type="text" id="news-date" placeholder="তারিখ" required class="border p-2 rounded">
+                            </div>
+                            <textarea id="news-body" rows="3" placeholder="বিস্তারিত বিবরণ..." required class="w-full border p-2 rounded"></textarea>
+                            <button type="submit" class="w-full bg-brand text-white font-bold py-2 rounded hover:bg-brand-dark">প্রকাশ করুন ও নোটিফিকেশন পাঠান</button>
+                        </form>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border shadow-sm">
+                        <h4 class="font-bold text-brand-dark text-sm mb-3">সংবাদ ও নোটিশ তালিকা</h4>
+                        <div id="admin-news-list" class="divide-y text-sm"></div>
+                    </div>
+                </div>
+
+                <!-- Tab 4 -->
+                <div id="tab-manage-books" class="admin-tab-content hidden space-y-4">
+                    <div class="bg-white p-5 rounded-xl border shadow-sm">
+                        <h4 class="font-bold text-brand-dark text-sm mb-3">পাঠাগারে নতুন বই যুক্ত করুন</h4>
+                        <form onsubmit="addBookItem(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                            <input type="text" id="book-title" placeholder="বইয়ের নাম" required class="border p-2 rounded">
+                            <input type="text" id="book-author" placeholder="লেখক / সংকলক" required class="border p-2 rounded">
+                            <input type="url" id="book-link" placeholder="পড়ার লিংক (PDF)" class="border p-2 rounded">
+                            <input type="url" id="book-cover" placeholder="কভার ছবির লিংক" class="border p-2 rounded">
+                            <button type="submit" class="sm:col-span-2 bg-brand text-white font-bold py-2 rounded hover:bg-brand-dark">বই যুক্ত করুন</button>
+                        </form>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border shadow-sm">
+                        <h4 class="font-bold text-brand-dark text-sm mb-3">বর্তমান বইয়ের তালিকা</h4>
+                        <div id="admin-books-list" class="divide-y text-sm"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-white text-xs sm:text-sm py-6 border-t border-emerald-900 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-2">
+            <p class="font-semibold">ইসলামী ছাত্র আন্দোলন বাংলাদেশ | মিরপুর মডেল থানা শাখা</p>
+            <p class="text-emerald-300">যেকোনো তথ্যে যোগাযোগ: ০১৮৭৯০০৩১৪৫ | ঢাকা মহানগর উত্তর</p>
+            <p class="text-emerald-400/60 text-xs">কپیরাইট © ২০২৪-বর্তমান। সর্বস্বত্ব সংরক্ষিত।</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        const defaultThanaMembers = [
+            { id: '1', name: 'মুহাম্মাদ খালিদ সাইফুল্লাহ', role: 'সভাপতি' },
+            { id: '2', name: 'আব্দুল্লাহ আল মামুন', role: 'সহ-সভাপতি' },
+            { id: '3', name: 'হাফেজ মুহাম্মাদ যোবায়ের', role: 'সাধারণ সম্পাদক' },
+            { id: '4', name: 'মাহমুদুল হাসান', role: 'সাংগঠনিক সম্পাদক' }
+        ];
+
+        const defaultSubCommittees = [
+            { id: '1', name: '১১ নং ওয়ার্ড শাখা', type: 'ওয়ার্ড', president: 'মুহাম্মাদ তানভীর', sec: 'নাজমুল হুদা' },
+            { id: '2', name: 'মিরপুর সরকারি কলেজ শাখা', type: 'ক্যাম্পাস', president: 'আহমেদ উল্লাহ', sec: 'সাব্বির আহমেদ' }
+        ];
+
+        const defaultNews = [
+            { id: '1', title: 'মিরপুর মডেল থানা শাখার উদ্যোগে মাসিক দাওয়াতী সভা অনুষ্ঠিত', type: 'সংবাদ', date: '১২ মে ২০২৪', body: 'মিরপুর মডেল থানা শাখার সভাপতি মহোদয়ের সভাপতিত্বে উক্ত সভায় স্থানীয় সকল ওয়ার্ডের দায়িত্বশীলবৃন্দ উপস্থিত ছিলেন।' }
+        ];
+
+        const defaultBooks = [
+            { id: '1', title: 'ইসলামী অনুভূতির উৎস ও বিকাশ', author: 'সাংগঠনিক সাহিত্য', link: '#', cover: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=400&q=80' }
+        ];
+
+        let thanaMembers = JSON.parse(localStorage.getItem('thanaMembers')) || defaultThanaMembers;
+        let subCommittees = JSON.parse(localStorage.getItem('subCommittees')) || defaultSubCommittees;
+        let newsList = JSON.parse(localStorage.getItem('newsList')) || defaultNews;
+        let booksList = JSON.parse(localStorage.getItem('booksList')) || defaultBooks;
+
+        function showSection(secId) {
+            ['home', 'thana-committee', 'ward-committee', 'news-notices', 'library', 'contact', 'admin'].forEach(s => {
+                document.getElementById(`sec-${s}`).classList.add('hidden');
+            });
+            document.getElementById(`sec-${secId}`).classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+        document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
+
+        function requestNotificationPermission() {
+            if (!("Notification" in window)) {
+                alert("আপনার ব্রাউজার পুশ নোটিফিকেশন সাপোর্ট করে না।");
+                return;
+            }
+            Notification.requestPermission().then(permission => {
+                if (permission === "granted") {
+                    alert("সফলভাবে নোটিফিকেশন অন করা হয়েছে!");
+                } else {
+                    alert("নোটিফিকেশন অনুমতি দেওয়া হয়নি।");
+                }
+            });
+        }
+
+        function sendPushNotification(title, bodyText) {
+            if (("Notification" in window) && Notification.permission === "granted") {
+                new Notification(title, {
+                    body: bodyText,
+                    icon: "1000042652.jpg"
+                });
+            }
+        }
+
+        function renderThanaCommittee() {
+            document.getElementById('thana-members-list').innerHTML = thanaMembers.map(m => `
+                <div class="bg-white rounded-xl shadow-sm border p-5 text-center flex flex-col items-center justify-center">
+                    <h3 class="font-bold text-slate-800 text-lg">${m.name}</h3>
+                    <span class="inline-block bg-emerald-50 text-brand-dark font-semibold text-xs px-3 py-1 rounded-full mt-2 border">${m.role}</span>
+                </div>
+            `).join('');
+
+            document.getElementById('admin-thana-list').innerHTML = thanaMembers.map(m => `
+                <div class="py-2.5 flex justify-between items-center">
+                    <div><p class="font-bold text-slate-800">${m.name}</p><p class="text-xs text-brand">${m.role}</p></div>
+                    <button onclick="deleteThanaMember('${m.id}')" class="text-red-500 text-xs font-bold px-2 py-1 bg-red-50 rounded"><i class="fa-solid fa-trash"></i> মুছুন</button>
+                </div>
+            `).join('');
+        }
+
+        let currentSubCommFilter = 'সকল';
+        function filterSubCommittee(type) {
+            currentSubCommFilter = type;
+            document.querySelectorAll('#subcomm-filter-btns .tab-btn').forEach(b => {
+                b.className = b.textContent.includes(type) ? 'tab-btn active px-4 py-1.5 rounded-full border text-sm font-semibold transition shadow-sm' : 'tab-btn px-4 py-1.5 rounded-full border text-sm font-semibold transition bg-white text-slate-700';
+            });
+            renderSubCommittees();
+        }
+
+        function renderSubCommittees() {
+            const filtered = currentSubCommFilter === 'সকল' ? subCommittees : subCommittees.filter(c => c.type === currentSubCommFilter);
+            document.getElementById('subcommittee-list').innerHTML = filtered.map(c => `
+                <div class="bg-white rounded-xl shadow-sm border p-5 space-y-3">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-bold text-slate-800 text-base"><i class="fa-solid fa-layer-group text-brand mr-2"></i> ${c.name}</h3>
+                        <span class="bg-amber-100 text-amber-800 text-xs px-2.5 py-0.5 rounded-full font-bold">${c.type}</span>
+                    </div>
+                    <div class="text-xs text-slate-600 space-y-1">
+                        <p><strong>সভাপতি/আহ্বায়ক:</strong> ${c.president}</p>
+                        <p><strong>সাধারণ সম্পাদক:</strong> ${c.sec}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            document.getElementById('admin-subcomm-list').innerHTML = subCommittees.map(c => `
+                <div class="py-2.5 flex justify-between items-center">
+                    <div><p class="font-bold text-slate-800">${c.name} <span class="text-xs text-amber-600">(${c.type})</span></p></div>
+                    <button onclick="deleteSubCommittee('${c.id}')" class="text-red-500 text-xs font-bold px-2 py-1 bg-red-50 rounded"><i class="fa-solid fa-trash"></i> মুছুন</button>
+                </div>
+            `).join('');
+        }
+
+        function renderNews() {
+            document.getElementById('news-list').innerHTML = newsList.map(n => `
+                <div class="bg-white rounded-xl shadow-sm border p-5 space-y-2">
+                    <div class="flex items-center space-x-2 space-x-reverse">
+                        <span class="bg-emerald-100 text-emerald-800 text-xs px-2.5 py-0.5 rounded-full font-bold">${n.type}</span>
+                        <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i> ${n.date}</span>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-base">${n.title}</h3>
+                    <p class="text-xs sm:text-sm text-slate-600">${n.body}</p>
+                </div>
+            `).join('');
+
+            document.getElementById('admin-news-list').innerHTML = newsList.map(n => `
+                <div class="py-2.5 flex justify-between items-center">
+                    <p class="font-bold text-slate-800 truncate max-w-xs">${n.title}</p>
+                    <button onclick="deleteNews('${n.id}')" class="text-red-500 text-xs font-bold px-2 py-1 bg-red-50 rounded"><i class="fa-solid fa-trash"></i> মুছুন</button>
+                </div>
+            `).join('');
+        }
+
+        function renderBooks() {
+            document.getElementById('books-list').innerHTML = booksList.map(b => `
+                <div class="bg-white rounded-xl shadow-sm border p-4 flex flex-col justify-between">
+                    <div>
+                        <img src="${b.cover}" class="w-full h-40 object-cover rounded-lg mb-3">
+                        <h4 class="font-bold text-slate-800 text-sm mb-1">${b.title}</h4>
+                        <p class="text-xs text-slate-500 mb-3">${b.author}</p>
+                    </div>
+                    <a href="${b.link}" target="_blank" class="w-full bg-emerald-50 hover:bg-brand hover:text-white text-brand-dark text-xs font-bold py-2 rounded text-center transition border">পড়ুন / ডাউনলোড</a>
+                </div>
+            `).join('');
+
+            document.getElementById('admin-books-list').innerHTML = booksList.map(b => `
+                <div class="py-2.5 flex justify-between items-center">
+                    <p class="font-bold text-slate-800">${b.title}</p>
+                    <button onclick="deleteBook('${b.id}')" class="text-red-500 text-xs font-bold px-2 py-1 bg-red-50 rounded"><i class="fa-solid fa-trash"></i> মুছুন</button>
+                </div>
+            `).join('');
+        }
+
+        function switchAdminTab(tabId) {
+            document.querySelectorAll('.admin-tab-content').choices = document.querySelectorAll('.admin-tab-content').forEach(c => c.classList.add('hidden'));
+            document.querySelectorAll('.admin-tab-btn').forEach(b => {
+                b.className = 'admin-tab-btn px-4 py-2 rounded-lg text-xs font-bold border transition whitespace-nowrap bg-white text-slate-700';
+            });
+            document.getElementById(tabId).classList.remove('hidden');
+            event.target.className = 'admin-tab-btn active px-4 py-2 rounded-lg text-xs font-bold border transition whitespace-nowrap bg-brand text-white';
+        }
+
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('admin-email').value;
+            const pass = document.getElementById('admin-password').value;
+            if (email === "admin@gmail.com" && pass === "123456") {
+                document.getElementById('admin-login-box').classList.add('hidden');
+                document.getElementById('admin-dashboard').classList.remove('hidden');
+            } else {
+                const err = document.getElementById('admin-login-error');
+                err.textContent = "ভুল ইমেইল বা পাসওয়ার্ড! (ব্যাবহার করুন: admin@gmail.com / 123456)";
+                err.classList.remove('hidden');
+            }
+        }
+
+        function handleAdminLogout() {
+            document.getElementById('admin-login-box').classList.remove('hidden');
+            document.getElementById('admin-dashboard').classList.add('hidden');
+        }
+
+        function addThanaMember(e) {
+            e.preventDefault();
+            thanaMembers.push({
+                id: Date.now().toString(),
+                name: document.getElementById('tm-name').value,
+                role: document.getElementById('tm-role').value
+            });
+            saveData('thanaMembers', thanaMembers);
+            renderThanaCommittee();
+            e.target.reset();
+            alert('সফলভাবে যুক্ত হয়েছে!');
+        }
+
+        function deleteThanaMember(id) {
+            if(confirm('মুছে ফেলতে চান?')) {
+                thanaMembers = thanaMembers.filter(m => m.id !== id);
+                saveData('thanaMembers', thanaMembers);
+                renderThanaCommittee();
+            }
+        }
+
+        function addSubCommittee(e) {
+            e.preventDefault();
+            subCommittees.push({
+                id: Date.now().toString(),
+                name: document.getElementById('sc-name').value,
+                type: document.getElementById('sc-type').value,
+                president: document.getElementById('sc-president').value,
+                sec: document.getElementById('sc-sec').value
+            });
+            saveData('subCommittees', subCommittees);
+            renderSubCommittees();
+            e.target.reset();
+            alert('কমিটি যুক্ত হয়েছে!');
+        }
+
+        function deleteSubCommittee(id) {
+            if(confirm('মুছে ফেলতে চান?')) {
+                subCommittees = subCommittees.filter(c => c.id !== id);
+                saveData('subCommittees', subCommittees);
+                renderSubCommittees();
+            }
+        }
+
+        function addNewsItem(e) {
+            e.preventDefault();
+            const title = document.getElementById('news-title').value;
+            const type = document.getElementById('news-type').value;
+            const date = document.getElementById('news-date').value;
+            const body = document.getElementById('news-body').value;
+
+            newsList.unshift({
+                id: Date.now().toString(),
+                title: title,
+                type: type,
+                date: date,
+                body: body
+            });
+            saveData('newsList', newsList);
+            renderNews();
+            
+            sendPushNotification(`নতুন ${type}: ${title}`, body);
+
+            e.target.reset();
+            alert('সংবাদ প্রকাশিত হয়েছে এবং নোটিফিকেশন পাঠানো হয়েছে!');
+        }
+
+        function deleteNews(id) {
+            if(confirm('মুছে ফেলতে চান?')) {
+                newsList = newsList.filter(n => n.id !== id);
+                saveData('newsList', newsList);
+                renderNews();
+            }
+        }
+
+        function addBookItem(e) {
+            e.preventDefault();
+            booksList.push({
+                id: Date.now().toString(),
+                title: document.getElementById('book-title').value,
+                author: document.getElementById('book-author').value,
+                link: document.getElementById('book-link').value || '#',
+                cover: document.getElementById('book-cover').value || '1000042652.jpg'
+            });
+            saveData('booksList', booksList);
+            renderBooks();
+            e.target.reset();
+            alert('বই যুক্ত হয়েছে!');
+        }
+
+        function deleteBook(id) {
+            if(confirm('মুছে ফেলতে চান?')) {
+                booksList = booksList.filter(b => b.id !== id);
+                saveData('booksList', booksList);
+                renderBooks();
+            }
+        }
+
+        function saveData(key, data) {
+            localStorage.setItem(key, JSON.stringify(data));
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderThanaCommittee();
+            renderSubCommittees();
+            renderNews();
+            renderBooks();
+        });
+    </script>
+</body>
+  </html>
