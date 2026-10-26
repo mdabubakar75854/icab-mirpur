@@ -56,7 +56,7 @@
             <div class="flex justify-between h-16 items-center">
                 <!-- App Logo & Title -->
                 <div class="flex items-center space-x-3 space-x-reverse cursor-pointer" onclick="showSection('home')">
-                    <img id="nav-logo" src="https://i.ibb.co/1G0C99J2/1000079030.png" alt="Logo" class="w-10 h-10 object-contain rounded-full shadow-sm border border-emerald-200 bg-white">
+                    <img id="nav-logo" src="https://i.ibb.co/1G0C99J2/1000079030.png" alt="Logo" class="w-10 h-10 object-contain rounded-full shadow-sm border border-emerald-200 bg-white[span_1](start_span)[span_2](start_span)"[span_1](end_span)[span_2](end_span)>
                     <div>
                         <h1 class="font-bold text-brand-dark text-base sm:text-lg leading-tight">ইসলামী ছাত্র আন্দোলন বাংলাদেশ</h1>
                         <p class="text-xs text-brand-light font-semibold">মিরপুর মডেল থানা শাখা</p>
@@ -120,7 +120,7 @@
                     </div>
                 </div>
                 <div class="mt-8 md:mt-0">
-                    <img id="home-logo" src="https://i.ibb.co/1G0C99J2/1000079030.png" alt="Logo Large" class="w-40 h-40 object-contain rounded-full shadow-2xl border-4 border-amber-300 opacity-90 mx-auto bg-white p-1">
+                    <img id="home-logo" src="https://i.ibb.co/1G0C99J2/1000079030.png" alt="Logo Large" class="w-40 h-40 object-contain rounded-full shadow-2xl border-4 border-amber-300 opacity-90 mx-auto bg-white p-1[span_3](start_span)[span_4](start_span)"[span_3](end_span)[span_4](end_span)>
                 </div>
             </div>
 
@@ -192,7 +192,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- President Card -->
                 <div class="bg-white rounded-2xl shadow-md border border-emerald-100 p-6 text-center flex flex-col items-center">
-                    <img id="contact-pres-img" src="https://i.ibb.co/hR9xW5x9/1000087768.png" alt="President" class="w-28 h-28 object-cover rounded-full border-4 border-emerald-100 shadow mb-4 p-1 bg-emerald-50">
+                    <img id="contact-pres-img" src="https://i.ibb.co/hR9xW5x9/1000087768.png" alt="President" class="w-28 h-28 object-cover rounded-full border-4 border-emerald-100 shadow mb-4 p-1 bg-emerald-50[span_5](start_span)[span_6](start_span)"[span_5](end_span)[span_6](end_span)>
                     <h3 id="contact-pres-name" class="text-xl font-bold text-slate-800">মুহা আবু বকর সিদ্দিক</h3>
                     <span class="bg-emerald-50 text-brand-dark font-bold text-xs px-3 py-1 rounded-full mt-1 border">থানা সভাপতি</span>
                     <div class="mt-6 w-full space-y-2">
@@ -207,7 +207,7 @@
 
                 <!-- General Secretary Card -->
                 <div class="bg-white rounded-2xl shadow-md border border-emerald-100 p-6 text-center flex flex-col items-center">
-                    <img id="contact-sec-img" src="https://i.ibb.co/68X3p1J9/1000057934.jpg" alt="Secretary" class="w-28 h-28 object-cover rounded-full border-4 border-emerald-100 shadow mb-4 p-1 bg-emerald-50">
+                    <img id="contact-sec-img" src="https://i.ibb.co/68X3p1J9/1000057934.jpg" alt="Secretary" class="w-28 h-28 object-cover rounded-full border-4 border-emerald-100 shadow mb-4 p-1 bg-emerald-50[span_7](start_span)[span_8](start_span)"[span_7](end_span)[span_8](end_span)>
                     <h3 id="contact-sec-name" class="text-xl font-bold text-slate-800">এইচ এম সাইদুল ইসলাম</h3>
                     <span class="bg-emerald-50 text-brand-dark font-bold text-xs px-3 py-1 rounded-full mt-1 border">সাধারণ সম্পাদক</span>
                     <div class="mt-6 w-full space-y-2">
@@ -401,14 +401,14 @@
 
     <!-- JavaScript Logic -->
     <script>
-        let siteLogo = localStorage.getItem('siteLogo') || "https://i.ibb.co/1G0C99J2/1000079030.png";[span_0](start_span)[span_0](end_span)
+        let siteLogo = localStorage.getItem('siteLogo') || "https://i.ibb.co/1G0C99J2/1000079030.png";[span_9](start_span)[span_9](end_span)[span_10](start_span)[span_10](end_span)
         let contactData = JSON.parse(localStorage.getItem('contactData')) || {
             presName: "মুহা আবু বকর সিদ্দিক",
             presPhone: "০১৮৭৯০০৩১৪৫",
-            presImg: "https://i.ibb.co/hR9xW5x9/1000087768.png",[span_1](start_span)[span_1](end_span)
+            presImg: "https://i.ibb.co/hR9xW5x9/1000087768.png",[span_11](start_span)[span_11](end_span)[span_12](start_span)[span_12](end_span)
             secName: "এইচ এম সাইদুল ইসলাম",
             secPhone: "০১১৯৪৯৭৫৭৯০৪",
-            secImg: "https://i.ibb.co/68X3p1J9/1000057934.jpg[span_2](start_span)"[span_2](end_span)
+            secImg: "https://i.ibb.co/68X3p1J9/1000057934.jpg[span_13](start_span)[span_14](start_span)"[span_13](end_span)[span_14](end_span)
         };
 
         const defaultThanaMembers = [
@@ -459,13 +459,11 @@
             document.getElementById('setting-sec-name').value = contactData.secName;
             document.getElementById('setting-sec-phone').value = contactData.secPhone;
 
-            // Fill direct link inputs
             document.getElementById('input-logo-url').value = siteLogo;
             document.getElementById('input-pres-url').value = contactData.presImg;
             document.getElementById('input-sec-url').value = contactData.secImg;
         }
 
-        // Handle Direct Link Image Update via Admin Panel
         function handleDirectImageUpdate(e) {
             e.preventDefault();
             siteLogo = document.getElementById('input-logo-url').value;
@@ -753,4 +751,4 @@
         });
     </script>
 </body>
-                    </html>
+                                                                       </html>
