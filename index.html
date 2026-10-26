@@ -254,7 +254,7 @@
                         <h3 class="text-lg font-bold text-brand-dark flex items-center">
                             <i class="fa-solid fa-gauge-high text-brand mr-2"></i> মিরপুর থানা অ্যাডমিন কন্ট্রোল প্যানেল
                         </h3>
-                        <p class="text-xs text-slate-500">স্বাগতম! আপনি এখান থেকে গ্যালারি থেকে সরাসরি ছবি আপলোড করতে পারবেন।</p>
+                        <p class="text-xs text-slate-500">স্বাগতম! এখান থেকে তথ্য এবং ছবি পরিবর্তন করতে পারবেন।</p>
                     </div>
                     <button onclick="handleAdminLogout()" class="bg-red-50 text-red-600 hover:bg-red-600 hover:text-white px-4 py-1.5 rounded-lg text-xs font-bold transition border border-red-200">
                         <i class="fa-solid fa-right-from-bracket mr-1"></i> লগআউট
@@ -262,42 +262,49 @@
                 </div>
 
                 <div class="flex overflow-x-auto gap-2 pb-2 border-b">
-                    <button onclick="switchAdminTab('tab-manage-settings')" class="admin-tab-btn active px-4 py-2 rounded-lg text-xs font-bold border transition whitespace-nowrap bg-brand text-white">লোগো ও ছবি আপলোড</button>
+                    <button onclick="switchAdminTab('tab-manage-settings')" class="admin-tab-btn active px-4 py-2 rounded-lg text-xs font-bold border transition whitespace-nowrap bg-brand text-white">লোগো ও ছবি আপডেট</button>
                     <button onclick="switchAdminTab('tab-manage-thana')" class="admin-tab-btn px-4 py-2 rounded-lg text-xs font-bold border transition whitespace-nowrap bg-white text-slate-700">থানা কমিটি</button>
                     <button onclick="switchAdminTab('tab-manage-subcomm')" class="admin-tab-btn px-4 py-2 rounded-lg text-xs font-bold border transition whitespace-nowrap bg-white text-slate-700">প্রতিষ্ঠান কমিটি</button>
                     <button onclick="switchAdminTab('tab-manage-news')" class="admin-tab-btn px-4 py-2 rounded-lg text-xs font-bold border transition whitespace-nowrap bg-white text-slate-700">সংবাদ ও নোটিশ</button>
                     <button onclick="switchAdminTab('tab-manage-books')" class="admin-tab-btn px-4 py-2 rounded-lg text-xs font-bold border transition whitespace-nowrap bg-white text-slate-700">পাঠাগার</button>
                 </div>
 
-                <!-- Tab 0: Direct File Upload Settings -->
+                <!-- Tab 0: Direct Links Settings -->
                 <div id="tab-manage-settings" class="admin-tab-content space-y-4">
                     <div class="bg-white p-5 rounded-xl border shadow-sm">
-                        <h4 class="font-bold text-brand-dark text-sm mb-3"><i class="fa-solid fa-image text-brand mr-1"></i> গ্যালারি থেকে ওয়েবসাইট লোগো পরিবর্তন করুন</h4>
-                        <div class="space-y-3 text-sm">
-                            <input type="file" id="upload-logo-file" accept="image/*" class="w-full border p-2 rounded file:bg-brand file:text-white file:border-0 file:rounded file:px-3 file:py-1 file:cursor-pointer">
-                            <button type="button" onclick="handleLogoUpload()" class="bg-brand text-white font-bold px-5 py-2 rounded hover:bg-brand-dark">লোগো আপলোড ও আপডেট করুন</button>
-                        </div>
+                        <h4 class="font-bold text-brand-dark text-sm mb-3"><i class="fa-solid fa-image text-brand mr-1"></i> লোগো ও ছবি আপডেট করুন (Direct Image Link দিয়ে)</h4>
+                        <form onsubmit="handleDirectImageUpdate(event)" class="space-y-3 text-sm">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-600 mb-1">লোগোর ডাইরেক্ট লিংক:</label>
+                                <input type="url" id="input-logo-url" class="w-full border p-2 rounded" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-600 mb-1">থানা সভাপতির ছবির ডাইরেক্ট লিংক:</label>
+                                <input type="url" id="input-pres-url" class="w-full border p-2 rounded" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-600 mb-1">সাধারণ সম্পাদকের ছবির ডাইরেক্ট লিংক:</label>
+                                <input type="url" id="input-sec-url" class="w-full border p-2 rounded" required>
+                            </div>
+                            <button type="submit" class="bg-brand text-white font-bold px-5 py-2.5 rounded hover:bg-brand-dark w-full">স্থায়ীভাবে ছবি ও লোগো আপডেট করুন</button>
+                        </form>
                     </div>
 
                     <div class="bg-white p-5 rounded-xl border shadow-sm">
-                        <h4 class="font-bold text-brand-dark text-sm mb-3"><i class="fa-solid fa-user-tie text-brand mr-1"></i> সভাপতি ও সাধারণ সম্পাদকের তথ্য এবং ছবি (গ্যালারি থেকে) পরিবর্তন</h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                        <h4 class="font-bold text-brand-dark text-sm mb-3"><i class="fa-solid fa-user-tie text-brand mr-1"></i> সভাপতি ও সাধারণ সম্পাদকের নাম ও মোবাইল নম্বর পরিবর্তন</h4>
+                        <form onsubmit="handleContactTextUpdate(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                             <div class="space-y-2 border p-4 rounded-lg bg-emerald-50/50">
                                 <h5 class="font-bold text-brand-dark">থানা সভাপতি</h5>
-                                <input type="text" id="setting-pres-name" placeholder="সভাপতির নাম" class="w-full border p-2 rounded bg-white">
-                                <input type="text" id="setting-pres-phone" placeholder="মোবাইল নম্বর" class="w-full border p-2 rounded bg-white">
-                                <label class="block text-xs font-semibold text-slate-600">সভাপতির ছবি সিলেক্ট করুন:</label>
-                                <input type="file" id="upload-pres-file" accept="image/*" class="w-full border p-2 rounded bg-white file:bg-brand file:text-white file:border-0 file:rounded file:px-2 file:py-1 file:text-xs">
+                                <input type="text" id="setting-pres-name" placeholder="সভাপতির নাম" class="w-full border p-2 rounded bg-white" required>
+                                <input type="text" id="setting-pres-phone" placeholder="মোবাইল নম্বর" class="w-full border p-2 rounded bg-white" required>
                             </div>
                             <div class="space-y-2 border p-4 rounded-lg bg-emerald-50/50">
                                 <h5 class="font-bold text-brand-dark">সাধারণ সম্পাদক</h5>
-                                <input type="text" id="setting-sec-name" placeholder="সম্পাদকের নাম" class="w-full border p-2 rounded bg-white">
-                                <input type="text" id="setting-sec-phone" placeholder="মোবাইল নম্বর" class="w-full border p-2 rounded bg-white">
-                                <label class="block text-xs font-semibold text-slate-600">সাধারণ সম্পাদকের ছবি সিলেক্ট করুন:</label>
-                                <input type="file" id="upload-sec-file" accept="image/*" class="w-full border p-2 rounded bg-white file:bg-brand file:text-white file:border-0 file:rounded file:px-2 file:py-1 file:text-xs">
+                                <input type="text" id="setting-sec-name" placeholder="সম্পাদকের নাম" class="w-full border p-2 rounded bg-white" required>
+                                <input type="text" id="setting-sec-phone" placeholder="মোবাইল নম্বর" class="w-full border p-2 rounded bg-white" required>
                             </div>
-                            <button type="button" onclick="handleContactUpload(event)" class="sm:col-span-2 bg-brand text-white font-bold py-2.5 rounded hover:bg-brand-dark">তথ্য ও ছবি সংরক্ষণ করুন</button>
-                        </div>
+                            <button type="submit" class="sm:col-span-2 bg-brand text-white font-bold py-2.5 rounded hover:bg-brand-dark">নাম ও নম্বর সংরক্ষণ করুন</button>
+                        </form>
                     </div>
                 </div>
 
@@ -394,14 +401,14 @@
 
     <!-- JavaScript Logic -->
     <script>
-        let siteLogo = localStorage.getItem('siteLogo') || "https://i.ibb.co/1G0C99J2/1000079030.png";
+        let siteLogo = localStorage.getItem('siteLogo') || "https://i.ibb.co/1G0C99J2/1000079030.png";[span_0](start_span)[span_0](end_span)
         let contactData = JSON.parse(localStorage.getItem('contactData')) || {
             presName: "মুহা আবু বকর সিদ্দিক",
             presPhone: "০১৮৭৯০০৩১৪৫",
-            presImg: "https://i.ibb.co/hR9xW5x9/1000087768.png",
+            presImg: "https://i.ibb.co/hR9xW5x9/1000087768.png",[span_1](start_span)[span_1](end_span)
             secName: "এইচ এম সাইদুল ইসলাম",
             secPhone: "০১১৯৪৯৭৫৭৯০৪",
-            secImg: "https://i.ibb.co/68X3p1J9/1000057934.jpg"
+            secImg: "https://i.ibb.co/68X3p1J9/1000057934.jpg[span_2](start_span)"[span_2](end_span)
         };
 
         const defaultThanaMembers = [
@@ -451,88 +458,36 @@
             document.getElementById('setting-pres-phone').value = contactData.presPhone;
             document.getElementById('setting-sec-name').value = contactData.secName;
             document.getElementById('setting-sec-phone').value = contactData.secPhone;
+
+            // Fill direct link inputs
+            document.getElementById('input-logo-url').value = siteLogo;
+            document.getElementById('input-pres-url').value = contactData.presImg;
+            document.getElementById('input-sec-url').value = contactData.secImg;
         }
 
-        // Handle Logo File Upload (Base64 conversion)
-        function handleLogoUpload() {
-            const fileInput = document.getElementById('upload-logo-file');
-            if (fileInput.files && fileInput.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    siteLogo = e.target.result;
-                    localStorage.setItem('siteLogo', siteLogo);
-                    applyDynamicSettings();
-                    alert('লোগো সফলভাবে আপলোড ও আপডেট হয়েছে!');
-                };
-                reader.readAsDataURL(fileInput.files[0]);
-            } else {
-                alert('দয়া করে প্রথমে একটি লোগো ছবি সিলেক্ট করুন।');
-            }
-        }
-
-        // Handle Contact & Images File Upload (Base64 conversion)
-        function handleContactUpload(e) {
+        // Handle Direct Link Image Update via Admin Panel
+        function handleDirectImageUpdate(e) {
             e.preventDefault();
-            const presName = document.getElementById('setting-pres-name').value;
-            const presPhone = document.getElementById('setting-pres-phone').value;
-            const secName = document.getElementById('setting-sec-name').value;
-            const secPhone = document.getElementById('setting-sec-phone').value;
+            siteLogo = document.getElementById('input-logo-url').value;
+            contactData.presImg = document.getElementById('input-pres-url').value;
+            contactData.secImg = document.getElementById('input-sec-url').value;
 
-            const presFile = document.getElementById('upload-pres-file').files[0];
-            const secFile = document.getElementById('upload-sec-file').files[0];
+            localStorage.setItem('siteLogo', siteLogo);
+            localStorage.setItem('contactData', JSON.stringify(contactData));
+            applyDynamicSettings();
+            alert('লোগো এবং ছবি সফলভাবে আপডেট হয়েছে!');
+        }
 
-            let pendingUploads = 0;
-            if (presFile) pendingUploads++;
-            if (secFile) pendingUploads++;
+        function handleContactTextUpdate(e) {
+            e.preventDefault();
+            contactData.presName = document.getElementById('setting-pres-name').value;
+            contactData.presPhone = document.getElementById('setting-pres-phone').value;
+            contactData.secName = document.getElementById('setting-sec-name').value;
+            contactData.secPhone = document.getElementById('setting-sec-phone').value;
 
-            if (pendingUploads === 0) {
-                contactData.presName = presName;
-                contactData.presPhone = presPhone;
-                contactData.secName = secName;
-                contactData.secPhone = secPhone;
-                localStorage.setItem('contactData', JSON.stringify(contactData));
-                applyDynamicSettings();
-                alert('তথ্য সফলভাবে সংরক্ষণ করা হয়েছে!');
-                return;
-            }
-
-            let savedPresImg = contactData.presImg;
-            let savedSecImg = contactData.secImg;
-
-            if (presFile) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    savedPresImg = e.target.result;
-                    checkComplete();
-                };
-                reader.readAsDataURL(presFile);
-            }
-
-            if (secFile) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    savedSecImg = e.target.result;
-                    checkComplete();
-                };
-                reader.readAsDataURL(secFile);
-            }
-
-            function checkComplete() {
-                pendingUploads--;
-                if (pendingUploads === 0) {
-                    contactData = {
-                        presName: presName,
-                        presPhone: presPhone,
-                        presImg: savedPresImg,
-                        secName: secName,
-                        secPhone: secPhone,
-                        secImg: savedSecImg
-                    };
-                    localStorage.setItem('contactData', JSON.stringify(contactData));
-                    applyDynamicSettings();
-                    alert('তথ্য এবং ছবি সফলভাবে আপলোড ও সংরক্ষণ করা হয়েছে!');
-                }
-            }
+            localStorage.setItem('contactData', JSON.stringify(contactData));
+            applyDynamicSettings();
+            alert('নাম ও মোবাইল নম্বর সফলভাবে সংরক্ষণ করা হয়েছে!');
         }
 
         function showSection(secId) {
@@ -798,4 +753,4 @@
         });
     </script>
 </body>
-    </html>
+                    </html>
