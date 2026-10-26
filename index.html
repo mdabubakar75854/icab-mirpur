@@ -56,7 +56,7 @@
             <div class="flex justify-between h-16 items-center">
                 <!-- App Logo & Title -->
                 <div class="flex items-center space-x-3 space-x-reverse cursor-pointer" onclick="showSection('home')">
-                    <img id="nav-logo" src="https://i.ibb.co.com/7dyYpQ9m/1000079030.png" alt="Logo" class="w-10 h-10 object-contain rounded-full shadow-sm border border-emerald-200">
+                    <img id="nav-logo" src="https://i.ibb.co/V93s039/1000057916.png" alt="Logo" class="w-10 h-10 object-contain rounded-full shadow-sm border border-emerald-200">
                     <div>
                         <h1 class="font-bold text-brand-dark text-base sm:text-lg leading-tight">ইসলামী ছাত্র আন্দোলন বাংলাদেশ</h1>
                         <p class="text-xs text-brand-light font-semibold">মিরপুর মডেল থানা শাখা</p>
@@ -120,7 +120,7 @@
                     </div>
                 </div>
                 <div class="mt-8 md:mt-0">
-                    <img id="home-logo" src="https://i.ibb.co.com/7dyYpQ9m/1000079030.png" alt="Logo Large" class="w-40 h-40 object-contain rounded-full shadow-2xl border-4 border-amber-300 opacity-90 mx-auto">
+                    <img id="home-logo" src="https://i.ibb.co/V93s039/1000057916.png" alt="Logo Large" class="w-40 h-40 object-contain rounded-full shadow-2xl border-4 border-amber-300 opacity-90 mx-auto bg-white p-1">
                 </div>
             </div>
 
@@ -192,7 +192,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- President Card -->
                 <div class="bg-white rounded-2xl shadow-md border border-emerald-100 p-6 text-center flex flex-col items-center">
-                    <img id="contact-pres-img" src="https://i.ibb.co.com/7dyYpQ9m/1000079030.png" alt="President" class="w-28 h-28 object-contain rounded-full border-4 border-emerald-100 shadow mb-4 p-1 bg-emerald-50">
+                    <img id="contact-pres-img" src="https://i.ibb.co/hR9xW5x9/1000087768.png" alt="President" class="w-28 h-28 object-cover rounded-full border-4 border-emerald-100 shadow mb-4 p-1 bg-emerald-50">
                     <h3 id="contact-pres-name" class="text-xl font-bold text-slate-800">মুহা আবু বকর সিদ্দিক</h3>
                     <span class="bg-emerald-50 text-brand-dark font-bold text-xs px-3 py-1 rounded-full mt-1 border">থানা সভাপতি</span>
                     <div class="mt-6 w-full space-y-2">
@@ -207,14 +207,14 @@
 
                 <!-- General Secretary Card -->
                 <div class="bg-white rounded-2xl shadow-md border border-emerald-100 p-6 text-center flex flex-col items-center">
-                    <img id="contact-sec-img" src="https://i.ibb.co.com/7dyYpQ9m/1000079030.png" alt="Secretary" class="w-28 h-28 object-contain rounded-full border-4 border-emerald-100 shadow mb-4 p-1 bg-emerald-50">
+                    <img id="contact-sec-img" src="https://i.ibb.co/68X3p1J9/1000057934.jpg" alt="Secretary" class="w-28 h-28 object-cover rounded-full border-4 border-emerald-100 shadow mb-4 p-1 bg-emerald-50">
                     <h3 id="contact-sec-name" class="text-xl font-bold text-slate-800">এইচ এম সাইদুল ইসলাম</h3>
                     <span class="bg-emerald-50 text-brand-dark font-bold text-xs px-3 py-1 rounded-full mt-1 border">সাধারণ সম্পাদক</span>
                     <div class="mt-6 w-full space-y-2">
-                        <a id="contact-sec-phone-btn" href="tel:01879003145" class="w-full bg-brand hover:bg-brand-dark text-white font-bold py-2 rounded-lg flex items-center justify-center transition shadow text-sm">
-                            <i class="fa-solid fa-phone mr-2"></i> <span id="contact-sec-phone">০১৮৭৯০০৩১৪৫</span>
+                        <a id="contact-sec-phone-btn" href="tel:01949757904" class="w-full bg-brand hover:bg-brand-dark text-white font-bold py-2 rounded-lg flex items-center justify-center transition shadow text-sm">
+                            <i class="fa-solid fa-phone mr-2"></i> <span id="contact-sec-phone">০১১৯৪৯৭৫৭৯০৪</span>
                         </a>
-                        <a id="contact-sec-wa" href="https://wa.me/8801879003145" target="_blank" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 rounded-lg flex items-center justify-center transition shadow text-sm">
+                        <a id="contact-sec-wa" href="https://wa.me/8801949757904" target="_blank" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 rounded-lg flex items-center justify-center transition shadow text-sm">
                             <i class="fa-brands fa-whatsapp mr-2 text-lg"></i> হোয়াটসঅ্যাপ
                         </a>
                     </div>
@@ -392,21 +392,21 @@
 
     <!-- JavaScript Logic -->
     <script>
-        // Default Settings & Data
-        let siteLogo = localStorage.getItem('siteLogo') || "https://i.ibb.co.com/7dyYpQ9m/1000079030.png";
+        // Default Settings & Data with updated correct links & names
+        let siteLogo = localStorage.getItem('siteLogo') || "https://i.ibb.co/V93s039/1000057916.png";
         let contactData = JSON.parse(localStorage.getItem('contactData')) || {
             presName: "মুহা আবু বকর সিদ্দিক",
             presPhone: "০১৮৭৯০০৩১৪৫",
-            presImg: "https://i.ibb.co.com/7dyYpQ9m/1000079030.png",
+            presImg: "https://i.ibb.co/hR9xW5x9/1000087768.png",
             secName: "এইচ এম সাইদুল ইসলাম",
-            secPhone: "০১৮৭৯০০৩১৪৫",
-            secImg: "https://i.ibb.co.com/7dyYpQ9m/1000079030.png"
+            secPhone: "০১১৯৪৯৭৫৭৯০৪",
+            secImg: "https://i.ibb.co/68X3p1J9/1000057934.jpg"
         };
 
         const defaultThanaMembers = [
-            { id: '1', name: 'মুহাম্মাদ খালিদ সাইফুল্লাহ', role: 'সভাপতি' },
-            { id: '2', name: 'আব্দুল্লাহ আল মামুন', role: 'সহ-সভাপতি' },
-            { id: '3', name: 'হাফেজ মুহাম্মাদ যোবায়ের', role: 'সাধারণ সম্পাদক' },
+            { id: '1', name: 'মুহা আবু বকর সিদ্দিক', role: 'সভাপতি' },
+            { id: '2', name: 'এইচ এম সাইদুল ইসলাম', role: 'সাধারণ সম্পাদক' },
+            { id: '3', name: 'আব্দুল্লাহ আল মামুন', role: 'সহ-সভাপতি' },
             { id: '4', name: 'মাহমুদুল হাসান', role: 'সাংগঠনিক সম্পাদক' }
         ];
 
@@ -744,4 +744,4 @@
         });
     </script>
 </body>
-</html>
+                    </html>
