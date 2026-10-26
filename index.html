@@ -44,10 +44,10 @@
 
     <!-- Top Notice Banner -->
     <div class="bg-brand-dark text-white text-xs sm:text-sm py-1.5 px-4 text-center font-medium flex justify-between items-center max-w-7xl mx-auto w-full">
-        <span class="truncate"><i class="fa-solid fa-bullhorn text-amber-400 mr-2"></i> মিরপুর মডেল থানা শাখার অফিসিয়াল পোর্টালে স্বাগতম</span>
-        <button onclick="requestNotificationPermission()" class="ml-2 bg-amber-500 hover:bg-amber-600 px-2 py-0.5 rounded text-white font-bold whitespace-nowrap text-xs">
-            <i class="fa-solid fa-bell"></i> নোটিফিকেশন অন করুন
-        </button>
+        <span class="truncate"><i class="fa-solid fa-bullhorn text-amber-400 mr-2"></i> মিরপুর মডেল থানা শাখার অফিসিয়াল পোর্টালে স্বাগতম (২০২৬ সেশন)</span>
+        <a href="tel:01879003145" class="ml-2 bg-amber-500 hover:bg-amber-600 px-2 py-0.5 rounded text-white font-bold whitespace-nowrap text-xs">
+            <i class="fa-solid fa-phone"></i> ০১৮৭৯০০৩১৪৫
+        </a>
     </div>
 
     <!-- Navigation Bar -->
@@ -56,7 +56,7 @@
             <div class="flex justify-between h-16 items-center">
                 <!-- App Logo & Title -->
                 <div class="flex items-center space-x-3 space-x-reverse cursor-pointer" onclick="showSection('home')">
-                    <img id="nav-logo" src="https://i.ibb.co/1G0C99J2/1000079030.png" alt="Logo" class="w-10 h-10 object-contain rounded-full shadow-sm border border-emerald-200 bg-white[span_1](start_span)[span_2](start_span)"[span_1](end_span)[span_2](end_span)>
+                    <img id="nav-logo" src="https://i.ibb.co/1G0C99J2/1000079030.png" alt="Logo" class="w-10 h-10 object-contain rounded-full shadow-sm border border-emerald-200 bg-white">
                     <div>
                         <h1 class="font-bold text-brand-dark text-base sm:text-lg leading-tight">ইসলামী ছাত্র আন্দোলন বাংলাদেশ</h1>
                         <p class="text-xs text-brand-light font-semibold">মিরপুর মডেল থানা শাখা</p>
@@ -66,9 +66,9 @@
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-1 lg:space-x-3 text-sm font-semibold">
                     <button onclick="showSection('home')" class="nav-link px-3 py-2 rounded-md hover:text-brand transition">হোম</button>
-                    <button onclick="showSection('thana-committee')" class="nav-link px-3 py-2 rounded-md hover:text-brand transition">থানা কমিটি</button>
+                    <button onclick="showSection('thana-committee')" class="nav-link px-3 py-2 rounded-md hover:text-brand transition">থানা কমিটি (২০২৬)</button>
                     <button onclick="showSection('ward-committee')" class="nav-link px-3 py-2 rounded-md hover:text-brand transition">ওয়ার্ড ও ক্যাম্পাস</button>
-                    <button onclick="showSection('news-notices')" class="nav-link px-3 py-2 rounded-md hover:text-brand transition">সংবাদ ও নোটিশ</button>
+                    <button onclick="showSection('news-notices')" class="nav-link px-3 py-2 rounded-md hover:text-brand transition">সংবাদ ও বিজ্ঞপ্তি</button>
                     <button onclick="showSection('library')" class="nav-link px-3 py-2 rounded-md hover:text-brand transition">পাঠাগার</button>
                     <button onclick="showSection('contact')" class="nav-link px-3 py-2 rounded-md hover:text-brand transition">যোগাযোগ</button>
                     <button onclick="showSection('admin')" class="px-3 py-1.5 rounded-md bg-emerald-50 text-brand-dark border border-brand hover:bg-brand hover:text-white transition">
@@ -88,9 +88,9 @@
         <!-- Mobile Menu Dropdown -->
         <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 pt-2 pb-4 space-y-2 shadow-lg">
             <button onclick="showSection('home'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium border-b">হোম</button>
-            <button onclick="showSection('thana-committee'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium border-b">থানা কমিটি</button>
+            <button onclick="showSection('thana-committee'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium border-b">থানা কমিটি (২০২৬)</button>
             <button onclick="showSection('ward-committee'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium border-b">ওয়ার্ড ও ক্যাম্পাস কমিটি</button>
-            <button onclick="showSection('news-notices'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium border-b">সংবাদ ও নোটিশ</button>
+            <button onclick="showSection('news-notices'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium border-b">সংবাদ ও বিজ্ঞপ্তি</button>
             <button onclick="showSection('library'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium border-b">পাঠাগার</button>
             <button onclick="showSection('contact'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium border-b">যোগাযোগ</button>
             <button onclick="showSection('admin'); toggleMobileMenu();" class="block w-full text-left py-2 font-bold text-brand">অ্যাডমিন প্যানেল</button>
@@ -108,19 +108,19 @@
                     <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight">ইসলামী ছাত্র আন্দোলন বাংলাদেশ</h2>
                     <h3 class="text-lg sm:text-xl text-emerald-100 font-medium">মিরপুর মডেল থানা শাখা, ঢাকা মহানগর পশ্চিম</h3>
                     <p class="text-emerald-50 text-sm sm:text-base leading-relaxed">
-                        আল্লাহর সন্তুষ্টি অর্জনের লক্ষ্যে যোগ্য, আদর্শবান ও চরিত্রবান ছাত্রসমাজ বিনির্মাণে আমরা অঙ্গীকারবদ্ধ।
+                        আল্লাহর সন্তুষ্টি অর্জনের লক্ষ্যে যোগ্য, আদর্শবান ও চরিত্রবান ছাত্রসমাজ বিনির্মাণে আমরা অঙ্গীকারবদ্ধ। ২০২৬ সেশনের নব-গঠিত কার্যনির্বাহী কমিটি।
                     </p>
                     <div class="pt-2 flex flex-wrap gap-3 justify-center md:justify-start">
-                        <button onclick="showSection('contact')" class="bg-amber-500 hover:bg-amber-600 text-white font-bold px-6 py-2.5 rounded-lg shadow-md transition flex items-center">
-                            <i class="fa-solid fa-user-plus mr-2"></i> যোগাযোগ করুন
+                        <button onclick="showSection('thana-committee')" class="bg-amber-500 hover:bg-amber-600 text-white font-bold px-6 py-2.5 rounded-lg shadow-md transition flex items-center">
+                            <i class="fa-solid fa-users mr-2"></i> থানা কমিটি দেখুন
                         </button>
-                        <button onclick="showSection('news-notices')" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-5 py-2.5 rounded-lg border border-white/30 transition">
-                            সর্বশেষ নোটিশ
+                        <button onclick="showSection('contact')" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-5 py-2.5 rounded-lg border border-white/30 transition">
+                            যোগাযোগ করুন
                         </button>
                     </div>
                 </div>
                 <div class="mt-8 md:mt-0">
-                    <img id="home-logo" src="https://i.ibb.co/1G0C99J2/1000079030.png" alt="Logo Large" class="w-40 h-40 object-contain rounded-full shadow-2xl border-4 border-amber-300 opacity-90 mx-auto bg-white p-1[span_3](start_span)[span_4](start_span)"[span_3](end_span)[span_4](end_span)>
+                    <img id="home-logo" src="https://i.ibb.co/1G0C99J2/1000079030.png" alt="Logo Large" class="w-40 h-40 object-contain rounded-full shadow-2xl border-4 border-amber-300 opacity-90 mx-auto bg-white p-1">
                 </div>
             </div>
 
@@ -138,17 +138,17 @@
         <!-- ================= SECTION: THANA COMMITTEE ================= -->
         <section id="sec-thana-committee" class="hidden space-y-6">
             <div class="text-center max-w-2xl mx-auto mb-8">
-                <h2 class="text-3xl font-bold text-brand-dark">থানা কমিটি</h2>
-                <p class="text-slate-600 text-sm mt-1">ইসলামী ছাত্র আন্দোলন বাংলাদেশ, মিরপুর মডেল থানা শাখার দায়িত্বশীলবৃন্দের তালিকা</p>
+                <h2 class="text-3xl font-bold text-brand-dark">থানা কমিটি (২০২৬ সেশন)</h2>
+                <p class="text-slate-600 text-sm mt-1">ইসলামী ছাত্র আন্দোলন বাংলাদেশ, মিরপুর মডেল থানা শাখার নব-গঠিত কার্যনির্বাহী পরিষদ</p>
                 <div class="w-16 h-1 bg-amber-500 mx-auto mt-2 rounded"></div>
             </div>
-            <div id="thana-members-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto"></div>
+            <div id="thana-members-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"></div>
         </section>
 
         <!-- ================= SECTION: WARD & CAMPUS COMMITTEE ================= -->
         <section id="sec-ward-committee" class="hidden space-y-6">
             <div class="text-center max-w-2xl mx-auto mb-6">
-                <h2 class="text-3xl font-bold text-brand-dark">প্রতিষ্ঠান ও ওয়ার্ড কমিটি</h2>
+                <h2 class="text-3xl font-bold text-brand-dark">তৃণমূল কমিটিসমূহ</h2>
                 <p class="text-slate-600 text-sm mt-1">ওয়ার্ড, ইউনিট ও ক্যাম্পাসভিত্তিক সাংগঠনিক কমিটি</p>
                 <div class="w-16 h-1 bg-amber-500 mx-auto mt-2 rounded"></div>
             </div>
@@ -192,7 +192,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- President Card -->
                 <div class="bg-white rounded-2xl shadow-md border border-emerald-100 p-6 text-center flex flex-col items-center">
-                    <img id="contact-pres-img" src="https://i.ibb.co/hR9xW5x9/1000087768.png" alt="President" class="w-28 h-28 object-cover rounded-full border-4 border-emerald-100 shadow mb-4 p-1 bg-emerald-50[span_5](start_span)[span_6](start_span)"[span_5](end_span)[span_6](end_span)>
+                    <img id="contact-pres-img" src="https://i.ibb.co/hR9xW5x9/1000087768.png" alt="President" class="w-28 h-28 object-cover rounded-full border-4 border-emerald-100 shadow mb-4 p-1 bg-emerald-50">
                     <h3 id="contact-pres-name" class="text-xl font-bold text-slate-800">মুহা আবু বকর সিদ্দিক</h3>
                     <span class="bg-emerald-50 text-brand-dark font-bold text-xs px-3 py-1 rounded-full mt-1 border">থানা সভাপতি</span>
                     <div class="mt-6 w-full space-y-2">
@@ -207,8 +207,8 @@
 
                 <!-- General Secretary Card -->
                 <div class="bg-white rounded-2xl shadow-md border border-emerald-100 p-6 text-center flex flex-col items-center">
-                    <img id="contact-sec-img" src="https://i.ibb.co/68X3p1J9/1000057934.jpg" alt="Secretary" class="w-28 h-28 object-cover rounded-full border-4 border-emerald-100 shadow mb-4 p-1 bg-emerald-50[span_7](start_span)[span_8](start_span)"[span_7](end_span)[span_8](end_span)>
-                    <h3 id="contact-sec-name" class="text-xl font-bold text-slate-800">এইচ এম সাইদুল ইসলাম</h3>
+                    <img id="contact-sec-img" src="https://i.ibb.co/68X3p1J9/1000057934.jpg" alt="Secretary" class="w-28 h-28 object-cover rounded-full border-4 border-emerald-100 shadow mb-4 p-1 bg-emerald-50">
+                    <h3 id="contact-sec-name" class="text-xl font-bold text-slate-800">এইচ.এম সাঈদুল ইসলাম সাঈদ</h3>
                     <span class="bg-emerald-50 text-brand-dark font-bold text-xs px-3 py-1 rounded-full mt-1 border">সাধারণ সম্পাদক</span>
                     <div class="mt-6 w-full space-y-2">
                         <a id="contact-sec-phone-btn" href="tel:01949757904" class="w-full bg-brand hover:bg-brand-dark text-white font-bold py-2 rounded-lg flex items-center justify-center transition shadow text-sm">
@@ -401,21 +401,32 @@
 
     <!-- JavaScript Logic -->
     <script>
-        let siteLogo = localStorage.getItem('siteLogo') || "https://i.ibb.co/1G0C99J2/1000079030.png";[span_9](start_span)[span_9](end_span)[span_10](start_span)[span_10](end_span)
+        let siteLogo = localStorage.getItem('siteLogo') || "https://i.ibb.co/1G0C99J2/1000079030.png";[span_5](start_span)[span_5](end_span)[span_6](start_span)[span_6](end_span)
         let contactData = JSON.parse(localStorage.getItem('contactData')) || {
             presName: "মুহা আবু বকর সিদ্দিক",
             presPhone: "০১৮৭৯০০৩১৪৫",
-            presImg: "https://i.ibb.co/hR9xW5x9/1000087768.png",[span_11](start_span)[span_11](end_span)[span_12](start_span)[span_12](end_span)
-            secName: "এইচ এম সাইদুল ইসলাম",
+            presImg: "https://i.ibb.co/hR9xW5x9/1000087768.png",[span_7](start_span)[span_7](end_span)[span_8](start_span)[span_8](end_span)
+            secName: "এইচ.এম সাঈদুল ইসলাম সাঈদ",
             secPhone: "০১১৯৪৯৭৫৭৯০৪",
-            secImg: "https://i.ibb.co/68X3p1J9/1000057934.jpg[span_13](start_span)[span_14](start_span)"[span_13](end_span)[span_14](end_span)
+            secImg: "https://i.ibb.co/68X3p1J9/1000057934.jpg[span_9](start_span)[span_10](start_span)"[span_9](end_span)[span_10](end_span)
         };
 
         const defaultThanaMembers = [
             { id: '1', name: 'মুহা আবু বকর সিদ্দিক', role: 'সভাপতি' },
-            { id: '2', name: 'এইচ এম সাইদুল ইসলাম', role: 'সাধারণ সম্পাদক' },
-            { id: '3', name: 'আব্দুল্লাহ আল মামুন', role: 'সহ-সভাপতি' },
-            { id: '4', name: 'মাহমুদুল হাসান', role: 'সাংগঠনিক সম্পাদক' }
+            { id: '2', name: 'মুহা গোলাম রাব্বি', role: 'সহ-সভাপতি' },
+            { id: '3', name: 'এইচ.এম সাঈদুল ইসলাম সাঈদ', role: 'সাধারণ সম্পাদক' },
+            { id: '4', name: 'মুহা ফরহাদ হুসাইন', role: 'সাংগঠনিক সম্পাদক' },
+            { id: '5', name: 'মুহা মুজাহিদুল ইসলাম', role: 'প্রশিক্ষণ সম্পাদক' },
+            { id: '6', name: 'মুহা মিনহাজ', role: 'দাওয়াহ্ সম্পাদক' },
+            { id: '7', name: 'মুহা আশিকুর রহমান', role: 'তথ্য গবেষণা ও প্রচার সম্পাদক' },
+            { id: '8', name: 'মুহা নাসিব আহমেদ', role: 'প্রকাশনা ও দফতর সম্পাদক' },
+            { id: '9', name: 'মুহাম্মদ ইউসুফ', role: 'অর্থ ও কল্যাণ সম্পাদক' },
+            { id: '10', name: 'মুহা জুনায়েদ', role: 'কওমী মাদরাসা সম্পাদক' },
+            { id: '11', name: 'মুহা রেজাউল করীম', role: 'আলিয়া মাদরাসা সম্পাদক' },
+            { id: '12', name: 'মুহা আব্দুল্লাহ আল মামুন', role: 'কলেজ সম্পাদক' },
+            { id: '13', name: 'মুহা রিফাত', role: 'স্কুল সম্পাদক' },
+            { id: '14', name: 'মুহা ইব্রাহিম খলিল', role: 'সাহিত্য ও সাংস্কৃতি সম্পাদক' },
+            { id: '15', name: 'মুহা নাহিদুল ইসলাম', role: 'কার্যনির্বাহী সদস্য' }
         ];
 
         const defaultSubCommittees = [
@@ -751,4 +762,4 @@
         });
     </script>
 </body>
-                                                                       </html>
+    </html>
