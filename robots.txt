@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mdabubakar75854.github.io/icab-mirpur/sitemap.xml
